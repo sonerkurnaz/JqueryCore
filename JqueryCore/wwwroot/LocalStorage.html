@@ -8,27 +8,32 @@
 </head>
 <body>
     <div class="container">
-        <div class="row">
-            <p id="sayac"></p>
-            <p>Lütfen Sayfayı Refresh Ediniz</p>
-        </div>
-    </div>
 
+        <div class="row">
+
+            <p id="sayac"></p>
+
+            <p>Lütfen Sayfayi Refreh Ediniz</p>
+        </div>
+
+
+    </div>
 
     <script src="jquery/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-
     <script type="text/javascript">
-        $(document).ready(function(){
+        $(document).ready(function () {
+
             //"sayac",sayac -> key,value
-            //localStorage.getItem -> varolan local storageların icerisinde sayac olanları getirir
+            //localStorage.getItem -> var olan local storagelarin icerisinde sayac olanlari getirir.
             var sayac = localStorage.getItem("sayac", sayac);
-            //sayac 1 arttıralım
+            //sayac 1 arttiralim
             sayac++;
             localStorage.setItem("sayac", sayac);
 
-            // body içerisinde id'si sayac olanın icersine sayac degerini basalım
+            //Body icerisinde id'si sayac olanin icersine sayac degerini basalim.
             $("#sayac").html("Sayac:" + sayac);
+
         });
     </script>
 </body>

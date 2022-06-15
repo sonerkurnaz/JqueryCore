@@ -8,51 +8,60 @@
 <body>
 
     <div class="container">
+
         <div class="row">
             <h1>HTML5 Local Storage</h1>
+
             <form action="/" method="post" name="editor">
                 <div class="row">
+
                     <div class="card">
                         <div class="card-body">
-                            <div class="col-lg-4">
+
+                            <div class="col-sm-4">
                                 <h2>Panel</h2>
                                 <div class="form-group">
+
                                     <label>
-                                        name: <input type="text" name="name" class="form-control" />
+                                        name: <input type="text" name="key" class="form-control" />
                                     </label>
 
                                 </div>
                                 <div class="form-group">
+
                                     <label>
                                         Data: <input type="text" name="data" class="form-control" />
                                     </label>
 
                                 </div>
-                                <input type="button" 
-                                       class="btn btn-info" 
+                                <input type="button"
+                                       class="btn btn-info"
                                        value="Set Item"
-                                       style="margin-top:10px"/>
+                                       style="margin-top:10px" onclick="doSetItem()" />
                             </div>
                             <div class="col-sm-8">
                                 <h2>Items</h2>
-                                <table class="table table-hover" id="pairs">
-                                    
+                                <table class="table table-hower" id="pairs">
                                 </table>
                                 <label>
-                                    <input type="button" 
-                                           name="name" 
+                                    <input type="button"
+                                           name="name"
                                            value="Clear"
                                            onclick="doClear()"
-                                           class="btn btn-danger"
-                                           />
+                                           class="btn btn-danger" />
                                 </label>
                             </div>
                         </div>
+
                     </div>
                 </div>
+
             </form>
+
         </div>
     </div>
+
+
     <script src="jquery/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript">
@@ -62,7 +71,26 @@
         }
         function doShowAll() {
             var key = "";
-            var
+            var pairs = "<tr><th>Name</th><th>Value</th></tr>\n";
+
+            for (var i = 0; i < localStorage.length; i++) {
+                key = localStorage.key(i);
+                pairs += "<tr><td>" + key + "</td>\n<td>" + localStorage.getItem(key) + "</td></tr>\n";
+            }
+
+            //Eger pairs  degiskeninde herhangi bir deger yok ise
+            if (pairs == "<tr><th>Name</th><th>Value</th></tr>\n") {
+                pairs += "<tr><td><i>empty</i></td><td><i>empty</i></td></tr>\n"
+            }
+            document.getElementById("pairs").innerHTML = pairs;
+        }
+
+        function doSetItem() {
+            //document icerisindeki formun editore sahip olanin value'su
+            var name = document.forms.editor.key.value;
+            var data = document.forms.editor.data.value;
+            localStorage.setItem(name, data);
+            doShowAll();
         }
     </script>
 </body>
