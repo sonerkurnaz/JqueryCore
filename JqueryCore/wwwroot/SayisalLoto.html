@@ -6,35 +6,35 @@
     <style>
         button {
             background-color: rgb(33,37,315,1.00);
-            width:100px;
-            height:100px;
-            border-radius:80%;
-            line-height:100px;
-            font-size:1.5em;
-            font-weight:500;
-            float:left;
-            margin:5px;
-        }
-        .top {
-            background-color: rgb(59,182,233,1.00); 
-            width:100px;
+            width: 100px;
             height: 100px;
-            line-height:100px;
-            border-radius:80%;
-            text-align:center;
-            font-size:1.5em;
-            font-weight:500;
-            float:left;
-            margin:5px;
+            border-radius: 80%;
+            line-height: 100px;
+            font-size: 1.5em;
+            font-weight: 500;
+            float: left;
+            margin: 5px;
         }
 
+        .top {
+            background-color: rgb(59,182,233,1.00);
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            border-radius: 80%;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: 500;
+            float: left;
+            margin: 5px;
+        }
     </style>
 </head>
 <body>
     <button id="oyna">Oyna</button>
 
     <div style="clear:both"></div>
-    
+
     <script src="jquery/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -44,7 +44,25 @@
                 $("<div class='top'>").appendTo($("body")).html(i);
             };
             function sayisalOyna() {
+                var toplar = [];
+                var sayi, sayac = 0;
 
+                while (sayac < 6) {
+                    sayi = Math.floor(Math.random() * 49) + 1
+                    if (toplar.indexOf(sayi) == -1) {
+                        toplar.push(sayi);
+                        sayac++;
+                    }
+                }
+                console.clear();
+                toplar.forEach((index) => { console.log(index) })
+                $(".top").css({ "background": "rgba(59,182,233,1.00)" })
+                $(".top").each(function (index, element) {
+                    var kutuSayi = Number($(element).html());
+                    if (toplar.indexOf(kutuSayi) >= 0) {
+                        $(element).css({ "background": "red" });
+                    }
+                });
             };
         });
     </script>
