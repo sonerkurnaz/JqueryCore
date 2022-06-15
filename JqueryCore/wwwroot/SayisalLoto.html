@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        button {
+            background-color: rgb(33,37,315,1.00);
+            width:100px;
+            height:100px;
+            border-radius:80%;
+            line-height:100px;
+            font-size:1.5em;
+            font-weight:500;
+            float:left;
+            margin:5px;
+        }
+        .top {
+            background-color: rgb(59,182,233,1.00); 
+            width:100px;
+            height: 100px;
+            line-height:100px;
+            border-radius:80%;
+            text-align:center;
+            font-size:1.5em;
+            font-weight:500;
+            float:left;
+            margin:5px;
+        }
+
+    </style>
+</head>
+<body>
+    <button id="oyna">Oyna</button>
+
+    <div style="clear:both"></div>
+    
+    <script src="jquery/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#oyna").click(sayisalOyna);
+
+            for (var i = 0; i < 50; i++) {
+                $("<div class='top'>").appendTo($("body")).html(i);
+            };
+            function sayisalOyna() {
+
+            };
+        });
+    </script>
+</body>
+</html>
