@@ -1,0 +1,24 @@
+﻿﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+
+    <script src="jquery/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var sayac = sessionStorage.getItem("sayac");
+            sayac++;
+            //setItem("sayac",sayac)-> "key",data
+            sessionStorage.setItem("sayac", sayac);
+            //elde ettiğim değeri sayac idli etikete basıyorum
+            $("#sayac").html("Sayac: " + sayac);
+        })
+    </script>
+</head>
+<body>
+    <!--sayfa kapandığında veride kaybolur session bazlı çalışır. -> sessionStorage-->
+    <p id="sayac"></p>
+    <p>Lütfen Sayfayı Reflesh Ediniz.</p>
+</body>
+</html>
